@@ -4,7 +4,12 @@ const { Client, GatewayIntentBits, Collection, REST, Routes } = require('discord
 require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
 // Créez une instance du bot
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMembers,
+    ],
+});
 
 // Collection des commandes
 client.commands = new Collection();
