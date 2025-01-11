@@ -52,5 +52,22 @@ module.exports = {
                 console.error(`Handler de bouton ${buttonName} non trouvé.`);
             }
         }
+
+        if (interaction.isSelectMenu()) {
+            // Diviser le customId pour extraire le nom du menu et les éventuels paramètres
+            const [menuName, ...params] = interaction.customId.split(':');
+            const menuHandlerPath = path.join(__dirname, '../selectMenus', `${menuName}.js`);
+
+            if (fs.existsSync(menuHandlerPath)) {
+                const menuHandler = require(menuHandlerPath);
+                try {
+                    await menuHandler.execute(interaction, params);
+                } catch (error) {
+                    console.error(`Erreur lors du traitement du menu ${interaction.customId}:`, error);
+                }
+            } else {
+                console.error(`Handler de menu ${menuName} non trouvé.`);
+            }
+        }
     },
 };

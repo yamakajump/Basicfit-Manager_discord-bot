@@ -22,9 +22,18 @@ module.exports = {
                     option.setName('salon')
                         .setDescription('Salon où envoyer le message de démarrage (optionnel).')
                 )
+        )
+        .addSubcommand(subcommand =>
+            subcommand
+                .setName('set_autorole')
+                .setDescription("Configure le rôle attribué automatiquement aux nouveaux membres.")
+                .addRoleOption(option =>
+                    option.setName('role')
+                        .setDescription('Le rôle à attribuer automatiquement.')
+                        .setRequired(true)
+                )
         ),
     async execute(interaction) {
-        // Vérification explicite des permissions "Gérer le serveur"
         if (!interaction.member.permissions.has('ManageGuild')) { // 'ManageGuild' correspond à "Gérer le serveur"
             return interaction.reply({
                 content: "❌ Vous n'avez pas la permission d'utiliser cette commande.",
@@ -35,7 +44,6 @@ module.exports = {
         const subcommand = interaction.options.getSubcommand();
 
         try {
-            // Charger dynamiquement le fichier de la sous-commande
             const subcommandFile = require(`./config/${subcommand}.js`);
             await subcommandFile.execute(interaction);
         } catch (error) {
