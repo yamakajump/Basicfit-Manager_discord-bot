@@ -32,6 +32,31 @@ module.exports = {
                         .setDescription('Le rôle à attribuer automatiquement.')
                         .setRequired(true)
                 )
+        )
+        .addSubcommand(subcommand =>
+            subcommand
+                .setName('add_autoreact')
+                .setDescription('Ajoute un salon pour les auto-réactions.')
+                .addChannelOption(option =>
+                    option.setName('salon')
+                        .setDescription('Le salon où le bot réagira automatiquement.')
+                        .setRequired(true)
+                )
+                .addStringOption(option =>
+                    option.setName('emoji')
+                        .setDescription('Emoji avec lequel le bot doit réagir.')
+                        .setRequired(true)
+                )
+        )
+        .addSubcommand(subcommand =>
+            subcommand
+                .setName('remove_autoreact')
+                .setDescription('Supprime un salon des auto-réactions.')
+                .addChannelOption(option =>
+                    option.setName('salon')
+                        .setDescription('Le salon à supprimer des auto-réactions.')
+                        .setRequired(true)
+                )
         ),
     async execute(interaction) {
         if (!interaction.member.permissions.has('ManageGuild')) { // 'ManageGuild' correspond à "Gérer le serveur"

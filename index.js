@@ -6,8 +6,10 @@ require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 // Créez une instance du bot
 const client = new Client({
     intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.Guilds,           // Nécessaire pour la gestion des serveurs
+        GatewayIntentBits.GuildMembers,     // Pour gérer les nouveaux membres (autorole)
+        GatewayIntentBits.GuildMessages,    // Pour écouter les messages dans les salons
+        GatewayIntentBits.MessageContent,   // Pour accéder au contenu des messages
     ],
 });
 

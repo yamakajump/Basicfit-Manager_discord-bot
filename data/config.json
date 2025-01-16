@@ -1,1 +1,17 @@
-{}
+{
+    "startupMessage": {
+        "enabled": false,
+        "message": "Je suis de retour mes GymBro !",
+        "channelId": "1326523165102575698"
+    },
+    "autoReactChannels": [
+        {
+            "channelId": "1328750604872323163",
+            "emoji": "💪"
+        },
+        {
+            "channelId": "1328743022854410321",
+            "emoji": "💪"
+        }
+    ]
+}
