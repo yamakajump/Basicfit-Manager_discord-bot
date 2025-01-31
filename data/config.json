@@ -12,7 +12,41 @@
         {
             "channelId": "1328743022854410321",
             "emoji": "💪"
+        },
+        {
+            "channelId": "1330933292647714827",
+            "emoji": "💪"
+        },
+        {
+            "channelId": "1330333332000604263",
+            "emoji": "🧡"
         }
     ],
-    "autoRoleId": "1326540165488840734"
+    "autoRoleId": "1326540165488840734",
+    "tickets": [
+        {
+            "name": "Demande de rôles",
+            "description": "Pour demander des rôles spécifiques (@Coach, @Nutritionniste, etc.)",
+            "channel_name": "ticket-roles",
+            "category_id": "123456789012345678"
+        },
+        {
+            "name": "Signalement d'abus",
+            "description": "Pour signaler un comportement inapproprié.",
+            "channel_name": "ticket-abus",
+            "category_id": "123456789012345678"
+        },
+        {
+            "name": "Problèmes techniques",
+            "description": "Pour signaler un problème technique avec les bots.",
+            "channel_name": "ticket-technique",
+            "category_id": "123456789012345678"
+        },
+        {
+            "name": "Contacter le staff",
+            "description": "Pour contacter directement le staff.",
+            "channel_name": "ticket-staff",
+            "category_id": "123456789012345678"
+        }
+    ]
 }

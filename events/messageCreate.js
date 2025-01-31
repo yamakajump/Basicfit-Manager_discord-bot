@@ -18,12 +18,18 @@ module.exports = {
 
         if (!autoReact) return;
 
-        try {
-            // Ajouter une réaction au message
-            await message.react(autoReact.emoji);
-            console.log(`Réaction ${autoReact.emoji} ajoutée au message dans ${message.channel.name}`);
-        } catch (error) {
-            console.error(`Erreur lors de l'ajout de la réaction :`, error);
+        // Vérifier si le message contient un fichier ou un lien
+        const hasAttachment = message.attachments.size > 0;
+        const hasLink = /https?:\/\//.test(message.content);
+
+        if (hasAttachment || hasLink) {
+            try {
+                // Ajouter une réaction au message
+                await message.react(autoReact.emoji);
+                console.log(`Réaction ${autoReact.emoji} ajoutée au message dans ${message.channel.name}`);
+            } catch (error) {
+                console.error(`Erreur lors de l'ajout de la réaction :`, error);
+            }
         }
     },
 };

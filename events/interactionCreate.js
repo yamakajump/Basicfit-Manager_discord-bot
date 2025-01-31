@@ -53,7 +53,7 @@ module.exports = {
             }
         }
 
-        if (interaction.isSelectMenu()) {
+        if (interaction.isStringSelectMenu()) {
             // Diviser le customId pour extraire le nom du menu et les éventuels paramètres
             const [menuName, ...params] = interaction.customId.split(':');
             const menuHandlerPath = path.join(__dirname, '../selectMenus', `${menuName}.js`);
