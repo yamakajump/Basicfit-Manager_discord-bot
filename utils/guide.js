@@ -95,7 +95,7 @@ function getGuideButtons(page, userId) {
             .setStyle(ButtonStyle.Primary)
             .setDisabled(page === 5),
         new ButtonBuilder()
-            .setCustomId(`guide:home:${userId}`)
+            .setCustomId(`guide:home:${page}:${userId}`)
             .setLabel('🏠 Accueil')
             .setStyle(ButtonStyle.Success)
             .setDisabled(page === 1)
